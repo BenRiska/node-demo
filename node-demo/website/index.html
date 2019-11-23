@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node Demo</title>
+</head>
+<style>
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+p{
+    margin: 1rem;
+}
+#submit{
+    margin: 1rem;
+    color: black;
+    padding: 1rem 2rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+}
+</style>
+<body>
+    <h1>Hello World</h1>
+
+    <p>
+        word: <input id="word">
+    </p>
+
+    <p>
+        score: <input id="score">
+    </p>
+    
+    <button id="submit">Submit</button>
+
+    <script>
+    var button = document.querySelector('#submit');
+
+    button.addEventListener('click', submitWord);
+
+    function submitWord(){
+        var word = document.querySelector('#word').value;
+        var score = document.querySelector('#score').value;
+        data = {word, score};
+
+        
+            fetch(`localhost:3000/add/${word}/${score}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            });
+            console.log('success');
+        }
+    </script>
+</body>
+</html>
