@@ -12,3 +12,4 @@ packages used - nodemon, Fs, express.
 
 feel free to use any components in your own work.
 
+NOTE -- i removed the node modules file because it is too big for github to handle, im sure this is common practise or perhaps there is a workaround but i am yet to discover the solution. hope it's not too inconvenient!
